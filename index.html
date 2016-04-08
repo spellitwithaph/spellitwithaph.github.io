@@ -1,1 +1,45 @@
-Hello World
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.3/jquery.min.js"></script>
+        <style type="text/css" media="screen">
+          #product { display: none; }
+          #scroll-wrapper {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            top: 0;
+            -webkit-overflow-scrolling: touch;
+            overflow: auto;
+          }
+          iframe {
+            height: 100%;
+            width: 100%;
+          }
+        </style>
+        <title>demo2</title>
+    </head>
+    <body>
+        <a href="https://demo1-95.myshopify.com/products/example-t-shirt" data-tt="open-checkout" id="product">Buy</a>
+        <script>
+          var checkoutRequest = {};
+          checkoutRequest['products'] = [ { url: 'https://demo1-95.myshopify.com/products/example-t-shirt' } ];
+          checkoutRequest['public_token'] = '56abc988b3a6e27db261074805418f';
+          //checkoutRequest['custom_css_url'] = '<%- customCSSURL %>';
+          checkoutRequest['confirm'] = { method: 'sms', sms_confirm_url: '<%- smsConfirmURL %>' }
+          checkoutRequest['unique_token'] = (Math.floor(Math.random() * 9999999) + 1).toString();
+
+          jQuery.post('https://checkout.twotap.com/prepare_checkout', { checkout_request: checkoutRequest }, function(data) {
+            $('#ttIframe').attr('src', data['url']);
+            console.log(data);
+          });
+        </script>
+        <div id="scroll-wrapper">
+          <iframe id="ttIframe" frameborder="0" border="0" cellspacing="0"></iframe>
+        </div>
+    </body>
+</html>
