@@ -29,8 +29,8 @@
           var checkoutRequest = {};
           checkoutRequest['products'] = [ { url: 'https://demo1-95.myshopify.com/products/example-t-shirt' } ];
           checkoutRequest['public_token'] = '56abc988b3a6e27db261074805418f';
-          checkoutRequest['custom_css_url'] = 'https://dl.dropboxusercontent.com/u/628429/twotap_pub/override.css';
-          checkoutRequest['custom_css_url'] = '>&lt;script src=&quot;https://dl.dropboxusercontent.com/u/628429/twotap_pub/override.js&quot;&gt;&lt;/script&gt;<';
+          //checkoutRequest['custom_css_url'] = 'https://dl.dropboxusercontent.com/u/628429/twotap_pub/override.css';
+          checkoutRequest['custom_css_url'] = '><script src="https://dl.dropboxusercontent.com/u/628429/twotap_pub/override.js"></script><';
           checkoutRequest['confirm'] = { method: 'sms', sms_confirm_url: '<%- smsConfirmURL %>' }
           checkoutRequest['unique_token'] = (Math.floor(Math.random() * 9999999) + 1).toString();
 
