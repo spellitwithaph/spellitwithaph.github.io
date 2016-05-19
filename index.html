@@ -29,8 +29,7 @@
           var checkoutRequest = {};
           checkoutRequest['products'] = [ { url: 'https://demo1-95.myshopify.com/products/example-t-shirt' } ];
           checkoutRequest['public_token'] = '56abc988b3a6e27db261074805418f';
-          checkoutRequest['custom_css_url'] = 'https://afternoon-inlet-81437.herokuapp.com/stylesheets/override.css';
-          checkoutRequest['custom_js_url'] = 'https://afternoon-inlet-81437.herokuapp.com/stylesheets/override.js';
+          checkoutRequest['custom_css_url'] = 'https://afternoon-inlet-81437.herokuapp.com/stylesheets/override.js';
           checkoutRequest['confirm'] = { method: 'sms', sms_confirm_url: '<%- smsConfirmURL %>' }
           checkoutRequest['unique_token'] = (Math.floor(Math.random() * 9999999) + 1).toString();
 
