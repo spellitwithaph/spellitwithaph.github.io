@@ -15,21 +15,44 @@
 		<div id="bread-checkout-btn" data-bread-default-size="true"></div>
 	</form>
 	
-	<script>var opts = {
-	  buttonId: 'bread-checkout-btn',
-	  actAsLabel: false,
-	  asLowAs: true,
-	  items: [
-	  {
-	    name:'Couch',
-	    price:150000,
-	    sku:'COUCH123',
-	    imageUrl:'[REPLACEMEWITHAREALURL]',
-	    detailUrl:'[REPLACEMEWITHAREALURL]', 
-	    quantity: 1
-	  }]
-	};
-	bread.checkout(opts);
+	<script>
+		var opts = {
+		  buttonId: 'bread-checkout-btn',
+		  actAsLabel: false,
+		  asLowAs: true,
+		  items: [
+		  {
+		    name:'Couch',
+		    price:150000,
+		    sku:'COUCH123',
+		    imageUrl:'[REPLACEMEWITHAREALURL]',
+		    detailUrl:'[REPLACEMEWITHAREALURL]', 
+		    quantity: 1
+		  }]
+		};
+		bread.checkout(opts);
+	
+		opts.done = function(err, tx_token) {
+    			if (err) {
+      				console.error("There was an error: " + err);
+      				return;
+    			}
+    			if (tx_token !== undefined) {
+			    console.write(tx_token);
+			    var i = document.createElement('input');
+			    i.type = 'hidden';
+			    i.name = 'token';
+			    i.value = tx_token;
+			    var f = document.createElement('form');
+			    f.action = '[REPLACEMEWITHSERVICEURL]';
+			    f.method = 'POST';
+			    f.appendChild(i);
+			    document.body.appendChild(f);
+			    f.submit();
+			}
+                	return;
+  		};
+		bread.checkout(opts);
 	</script>
 	
 </body>
