@@ -10,24 +10,27 @@
 <body>
 
 	<script src="https://checkout-sandbox.getbread.com/bread.js" data-api-key="7101ea30-8ae3-47ab-a8bd-235860d36f3e"></script>
-<div id="bread-checkout-btn" data-bread-default-size="true"></div>
-<form id="bread-checkout-form" action="/confirm" method="POST">
-<script>var opts = {
-  buttonId: 'bread-checkout-btn',
-  actAsLabel: false,
-  asLowAs: true,
-  items: [
-  {
-    name:'Couch',
-    price:150000,
-    sku:'COUCH123',
-    imageUrl:'[REPLACEMEWITHAREALURL]',
-    detailUrl:'[REPLACEMEWITHAREALURL]', 
-    quantity: 1
-  }]
-};
-bread.checkout(opts);
-</script>
-</form>
+
+	<form id="bread-checkout-form" action="/confirm" method="POST">
+		<div id="bread-checkout-btn" data-bread-default-size="true"></div>
+	</form>
+	
+	<script>var opts = {
+	  buttonId: 'bread-checkout-btn',
+	  actAsLabel: false,
+	  asLowAs: true,
+	  items: [
+	  {
+	    name:'Couch',
+	    price:150000,
+	    sku:'COUCH123',
+	    imageUrl:'[REPLACEMEWITHAREALURL]',
+	    detailUrl:'[REPLACEMEWITHAREALURL]', 
+	    quantity: 1
+	  }]
+	};
+	bread.checkout(opts);
+	</script>
+	
 </body>
 </html>
