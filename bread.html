@@ -11,49 +11,12 @@
 
 	<script src="https://checkout-sandbox.getbread.com/bread.js" data-api-key="7101ea30-8ae3-47ab-a8bd-235860d36f3e"></script>
 
-	<form id="bread-checkout-form" action="/confirm" method="POST">
-		<div id="bread-checkout-btn" data-bread-default-size="true"></div>
-	</form>
-	
-	<script>
-		var opts = {
-		  buttonId: 'bread-checkout-btn',
-		  actAsLabel: false,
-		  asLowAs: true,
-		  items: [
-		  {
-		    name:'Couch',
-		    price:150000,
-		    sku:'COUCH123',
-		    imageUrl:'[REPLACEMEWITHAREALURL]',
-		    detailUrl:'[REPLACEMEWITHAREALURL]', 
-		    quantity: 1
-		  }]
-		};
-		bread.checkout(opts);
-	
-		opts.done = function(err, tx_token) {
-    			if (err) {
-      				console.error("There was an error: " + err);
-      				return;
-    			}
-    			if (tx_token !== undefined) {
-			    console.write(tx_token);
-			    var i = document.createElement('input');
-			    i.type = 'hidden';
-			    i.name = 'token';
-			    i.value = tx_token;
-			    var f = document.createElement('form');
-			    f.action = '[REPLACEMEWITHSERVICEURL]';
-			    f.method = 'POST';
-			    f.appendChild(i);
-			    document.body.appendChild(f);
-			    f.submit();
-			}
-                	return;
-  		};
-		bread.checkout(opts);
-	</script>
+	<form class="button-example" style="margin-top: 10px;" action="checkout" method="post">
+<h4>Example Button</h4>
+<style>#bread-example-customcss {width: 255px; height: 46px;}</style>
+<div id="bread-example-customcss"></div>
+</form>
+<p><script>var optsCustomCSS = {buttonId: 'bread-example-customcss', customTotal: 10000, asLowAs: true, customCSS: "@import url(https://fonts.googleapis.com/css?family=Montserrat);#bread-button,.bread-center,.bread-embed,.bread-embed-inner,body,html{height:100%;width:100%}body{font-family:Montserrat,serif;font-weight:600;margin:0}#bread-button{background:#F27935;color:#fff;font-size:14px;letter-spacing:.2px;text-align:center;text-shadow:0 1px rgba(0,0,0,.1);text-transform:uppercase}#bread-button.bread-btn{cursor:pointer}.bread-center{display:table}.bread-center-inner{display:table-cell;text-align:center;vertical-align:middle}.bread-btn.bread-as-low-as .bread-as-low-as:before,.bread-label .bread-as-low-as:before{content:'As low as '}"}; bread.checkout(optsCustomCSS);</script></li>
 	
 </body>
 </html>
