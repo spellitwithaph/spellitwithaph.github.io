@@ -55,6 +55,8 @@ function showPalettes(code) {
         });
 
         jQuery('#BMdataResults').html(res);
+          
+        jQuery('.findastore').show();
 
         var tds = jQuery("#BMdataResults td");
         for(var i = 0; i < tds.length; i+=8) {
